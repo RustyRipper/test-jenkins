@@ -79,10 +79,11 @@ pipeline {
                     }
                 }
             }
-        }
-        stage('print'){
-            steps{
-                echo '${Lab}'
+            stage('print'){
+                steps{
+                    echo '${Lab}'
+                }
             }
         }
+
 }
