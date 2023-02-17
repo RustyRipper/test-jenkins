@@ -68,7 +68,7 @@ pipeline {
                                         script: [
                                             script: '''
 
-                                                    return["Your CICD " + Lab + " "Version]
+                                                    return["Your CICD ${Lab]"]
 
                                                     '''
                                             ]
@@ -79,5 +79,10 @@ pipeline {
                     }
                 }
             }
-        }   
+        }
+        stage('print'){
+            steps{
+                echo '${Lab}'
+            }
+        }
 }
