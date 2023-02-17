@@ -61,7 +61,7 @@ pipeline {
                                     choiceType: 'ET_ORDERED_LIST', 
                                     description: 'Select the  AMI based on the following information', 
                                     name: 'Image Information', 
-                                    referencedParameters: 'Lab, Version',
+                                    referencedParameters: 'Lab',
                                     script: 
                                         [$class: 'GroovyScript', 
                                         script: 'return["Could not get AMi Information"]', 
@@ -81,7 +81,7 @@ pipeline {
             }
             stage('print'){
                 steps{
-                    echo ${Lab}
+                    echo "${Lab}"
                 }
             }
         }
