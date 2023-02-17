@@ -61,14 +61,14 @@ pipeline {
                                     choiceType: 'ET_ORDERED_LIST', 
                                     description: 'Select the  AMI based on the following information', 
                                     name: 'Image Information', 
-                                    referencedParameters: 'Lab',
+                                    referencedParameters: 'Lab, Version',
                                     script: 
                                         [$class: 'GroovyScript', 
                                         script: 'return["Could not get AMi Information"]', 
                                         script: [
                                             script: '''
 
-                                                    return["Your CICD"]
+                                                    return["Your CICD ${Lab} ${Version}".toString()]
 
                                                     '''
                                             ]
