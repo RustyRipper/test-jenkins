@@ -68,7 +68,7 @@ pipeline {
                                         script: [
                                             script: '''
 
-                                                    return["Your CICD ${Lab}"]
+                                                    return["Your CICD"]
 
                                                     '''
                                             ]
