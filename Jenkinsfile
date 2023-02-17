@@ -11,7 +11,7 @@ pipeline {
                                     description: 'Select the Environemnt from the Dropdown List', 
                                     filterLength: 1, 
                                     filterable: false, 
-                                    name: 'Env', 
+                                    name: 'Lab',
                                     script: [
                                         $class: 'GroovyScript', 
                                         fallbackScript: [
@@ -24,15 +24,15 @@ pipeline {
                                             classpath: [], 
                                             sandbox: false, 
                                             script: 
-                                                'return["dev","stage","prod"]'
+                                                'return["vsp0004","vsp0096","os10"]'
                                         ]
                                     ]
                                 ],
                                 [$class: 'CascadeChoiceParameter', 
                                     choiceType: 'PT_SINGLE_SELECT', 
                                     description: 'Select the AMI from the Dropdown List',
-                                    name: 'AMI List', 
-                                    referencedParameters: 'Env', 
+                                    name: 'Version',
+                                    referencedParameters: 'Lab',
                                     script: 
                                         [$class: 'GroovyScript', 
                                         fallbackScript: [
@@ -44,14 +44,14 @@ pipeline {
                                                 classpath: [], 
                                                 sandbox: false, 
                                                 script: '''
-                                                if (Env.equals("dev")){
-                                                    return["ami-sd2345sd", "ami-asdf245sdf", "ami-asdf3245sd"]
+                                                if (Lab.equals("os10")){
+                                                    return["ARC22", "ARC22_FP1", "ARC23"]
                                                 }
-                                                else if(Env.equals("stage")){
-                                                    return["ami-sd34sdf", "ami-sdf345sdc", "ami-sdf34sdf"]
+                                                else if(Lab.equals("vsp0096")){
+                                                    return["ARC22", "ARC22_FP1"]
                                                 }
-                                                else if(Env.equals("prod")){
-                                                    return["ami-sdf34sdf", "ami-sdf34ds", "ami-sdf3sf3"]
+                                                else if(Lab.equals("vsp0004")){
+                                                    return["ARC22", "ARC22_FP1", "ARC23"]
                                                 }
                                                 '''
                                             ] 
@@ -61,23 +61,17 @@ pipeline {
                                     choiceType: 'ET_ORDERED_LIST', 
                                     description: 'Select the  AMI based on the following information', 
                                     name: 'Image Information', 
-                                    referencedParameters: 'Env', 
+                                    referencedParameters: 'Lab, Version',
                                     script: 
                                         [$class: 'GroovyScript', 
                                         script: 'return["Could not get AMi Information"]', 
                                         script: [
                                             script: '''
-                                                    if (Env.equals("dev")){
-                                                        return["ami-sd2345sd:  AMI with Java", "ami-asdf245sdf: AMI with Python", "ami-asdf3245sd: AMI with Groovy"]
-                                                    }
-                                                    else if(Env.equals("stage")){
-                                                        return["ami-sd34sdf:  AMI with Java", "ami-sdf345sdc: AMI with Python", "ami-sdf34sdf: AMI with Groovy"]
-                                                    }
-                                                    else if(Env.equals("prod")){
-                                                        return["ami-sdf34sdf:  AMI with Java", "ami-sdf34ds: AMI with Python", "ami-sdf3sf3: AMI with Groovy"]
-                                                    }
+
+                                                    return["Your CICD " + Lab + " "Version]
+
                                                     '''
-                                                ]
+                                            ]
                                         ]
                                 ]
                             ])
