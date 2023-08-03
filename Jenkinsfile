@@ -28,11 +28,10 @@ pipeline {
                                         ]
                                     ]
                                 ],
-                                [$class: 'DynamicReferenceParameter', 
+                                [$class: 'ChoiceParameter', 
                                     choiceType: 'FORMATTED_HTML', 
                                     description: 'Select the AMI from the Dropdown List',
                                     name: 'Version',
-                                    referencedParameters: 'Lab',
                                     script: 
                                         [$class: 'GroovyScript', 
                                         fallbackScript: [
