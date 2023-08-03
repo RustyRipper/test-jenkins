@@ -28,36 +28,11 @@ pipeline {
                                         ]
                                     ]
                                 ],
-                                [$class: 'CascadeChoiceParameter', 
-                                    choiceType: 'ET_FORMATTED_HTML', 
-                                    description: 'Select the AMI from the Dropdown List',
-                                    name: 'Version',
-                                    script: 
-                                        [$class: 'GroovyScript', 
-                                        fallbackScript: [
-                                                classpath: [], 
-                                                sandbox: false, 
-                                                script: "return['Could not get Environment from Env Param']"
-                                                ], 
-                                        script: [
-                                                classpath: [], 
-                                                sandbox: false, 
-                                                script: '''
-                                                    return "<ul style="list-style-type: none">
-                                                        <li style="padding: 5px">
-                                                        <label>VAPP_ID</label>
-                                                        <input type="text" class="setting-input" name="value">
-                                                          </li>
-                                                        </ul>"
-                                                '''
-                                            ] 
-                                    ]
-                                ],
                                 [$class: 'DynamicReferenceParameter', 
                                     choiceType: 'ELEMENT_TYPE_TEXT_BOX', 
                                     description: 'Select the  AMI based on the following information', 
                                     name: 'Image Information', 
-                                    referencedParameters: 'Lab, Version',
+                                    referencedParameters: 'Lab',
                                     script: 
                                         [$class: 'GroovyScript', 
                                         script: 'return["Could not get AMi Information"]', 
