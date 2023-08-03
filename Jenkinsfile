@@ -64,7 +64,7 @@ pipeline {
                                         script: [
                                             script: '''
 
-                                                    return["Your CICD ${Lab} ${Version}".toString()]
+                                                    return "<input type="text" class="setting-input" name="value">"
 
                                                     '''
                                             ]
