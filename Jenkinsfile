@@ -29,7 +29,7 @@ pipeline {
                                     ]
                                 ],
                                 [$class: 'DynamicReferenceParameter', 
-                                    choiceType: 'ELEMENT_TYPE_TEXT_BOX', 
+                                    choiceType: 'ELEMENT_TYPE_FORMATTED_HTML', 
                                     description: 'Select the  AMI based on the following information', 
                                     name: 'Image Information', 
                                     referencedParameters: 'Lab',
