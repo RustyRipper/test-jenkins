@@ -28,8 +28,8 @@ pipeline {
                                         ]
                                     ]
                                 ],
-                                [$class: 'CascadeChoiceParameter', 
-                                    choiceType: 'PT_SINGLE_SELECT', 
+                                [$class: 'DynamicReferenceParameter', 
+                                    choiceType: 'FORMATTED_HTML', 
                                     description: 'Select the AMI from the Dropdown List',
                                     name: 'Version',
                                     referencedParameters: 'Lab',
@@ -44,15 +44,8 @@ pipeline {
                                                 classpath: [], 
                                                 sandbox: false, 
                                                 script: '''
-                                                if (Lab.equals("os10")){
-                                                    return["ARC22", "ARC22_FP1", "ARC23"]
-                                                }
-                                                else if(Lab.equals("vsp0096")){
-                                                    return["ARC22", "ARC22_FP1"]
-                                                }
-                                                else if(Lab.equals("vsp0004")){
-                                                    return["ARC22", "ARC22_FP1", "ARC23"]
-                                                }
+                                                return  "<input name='Aws' value='' class='setting-input' type='text'>"
+                                                return  "<input name='Aws2' value='' class='setting-input' type='text'>"
                                                 '''
                                             ] 
                                     ]
