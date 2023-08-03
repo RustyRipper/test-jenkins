@@ -44,14 +44,12 @@ pipeline {
                                                 classpath: [], 
                                                 sandbox: false, 
                                                 script: '''
-                                                    vappHtml = '''
-                                                    <ul style="list-style-type: none">
+                                                    return "<ul style="list-style-type: none">
                                                         <li style="padding: 5px">
                                                         <label>VAPP_ID</label>
                                                         <input type="text" class="setting-input" name="value">
                                                           </li>
-                                                    </ul>
-                                                    '''
+                                                        </ul>"
                                                 '''
                                             ] 
                                     ]
