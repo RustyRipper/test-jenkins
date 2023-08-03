@@ -44,8 +44,14 @@ pipeline {
                                                 classpath: [], 
                                                 sandbox: false, 
                                                 script: '''
-                                                return  "<input name='Aws' value='' class='setting-input' type='text'>"
-                                                return  "<input name='Aws2' value='' class='setting-input' type='text'>"
+                                                    vappHtml = '''
+                                                    <ul style="list-style-type: none">
+                                                        <li style="padding: 5px">
+                                                        <label>VAPP_ID</label>
+                                                        <input type="text" class="setting-input" name="value">
+                                                          </li>
+                                                    </ul>
+                                                    '''
                                                 '''
                                             ] 
                                     ]
