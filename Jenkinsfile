@@ -28,8 +28,8 @@ pipeline {
                                         ]
                                     ]
                                 ],
-                                [$class: 'ChoiceParameter', 
-                                    choiceType: 'FORMATTED_HTML', 
+                                [$class: 'CascadeChoiceParameter', 
+                                    choiceType: 'ET_FORMATTED_HTML', 
                                     description: 'Select the AMI from the Dropdown List',
                                     name: 'Version',
                                     script: 
